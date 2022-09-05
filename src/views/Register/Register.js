@@ -22,7 +22,6 @@ const Item = styled(Paper)(({ theme }) => ({
   paddingRight: 50,
   height: '100vh',
   color: theme.palette.text.secondary,
-  
 }));
 
 const validationSchema = yup.object({
@@ -65,8 +64,8 @@ const Register = () => {
   });
   return (
     <Grid container>
-      <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        <Item elevation={0} >
+      <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
+        <Item elevation={0}>
           <img src={require('../../utils/assets/Asset 1@4x.png')} alt="logo" className="logoFormRegister" />
           <form onSubmit={formik.handleSubmit}>
             <TextField
@@ -158,8 +157,8 @@ const Register = () => {
           </Grid>
         </Item>
       </Grid>
-      <Grid item xs={6}>
-        login left
+      <Grid item xs={6} sx={{ display: { xs: 'none', md: 'flex' } }}>
+        <img src={require('../../utils/assets/Монтажная область 97@4x.png')} alt="logo side" className="logoSide" />
       </Grid>
     </Grid>
   );

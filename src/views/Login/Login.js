@@ -22,6 +22,7 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
 
+
 const validationSchema = yup.object({
   email: yup.string('Enter your email').email('Enter a valid email').required('Email is required'),
   password: yup
@@ -33,8 +34,8 @@ const validationSchema = yup.object({
 const Login = () => {
   const formik = useFormik({
     initialValues: {
-      email: 'johnDoe@example.com',
-      password: 'johnbor',
+      email: '',
+      password: '',
     },
     validationSchema: validationSchema,
     onSubmit: (values) => {
@@ -42,8 +43,8 @@ const Login = () => {
     },
   });
   return (
-    <Grid container >
-      <Grid item xs={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center',  }}>
+    <Grid container>
+      <Grid item xs={12} md={6} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <Item elevation={0}>
           <img src={require('../../utils/assets/Asset 1@4x.png')} alt="logo" className="logoForm" />
           <form onSubmit={formik.handleSubmit}>
@@ -85,14 +86,14 @@ const Login = () => {
             <p>
               Don&apos;t have an account ? <span> </span>
               <Link to="register" style={{ textDecoration: 'none' }}>
-                  Register
+                Register
               </Link>
             </p>
           </Grid>
         </Item>
       </Grid>
-      <Grid item xs={6}>
-        login left
+      <Grid item xs={6} sx={{ display: { xs: 'none', md: 'flex' } }} >
+        <img src={require('../../utils/assets/Монтажная область 97@4x.png')} alt="logo side" className="logoSide" />
       </Grid>
     </Grid>
   );
